@@ -1,38 +1,214 @@
-.App {
-  text-align: center;
+body{
+    margin: 0;
+}
+h1,h2,h3,h4,h5,h6{
+    color: #333333;
+}
+.container-fluid > .no-gutters{
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-section{
+    height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.primary-black{
+    color: #333333;
+}
+.header-section{
+    background-color: #f6f6f6;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 2px solid #999999;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Sidebar CSS */
+
+.sidebar{
+    background-color: #f6f6f6;
+    height: 100%;
+}
+.sidebar h2{
+    color: #333333;
 }
 
-.App-link {
-  color: #61dafb;
+.option-btns{
+    display: flex;
+    justify-content: flex-end;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fav-btn,.del-btn, .edit-btn{
+    padding: 7px;
+}
+.media-body .fav-btn{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background: #333333;
+    color: #FFFFFF;
+    margin-right: 5px;
+}
+
+.media-body .edit-btn{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background: #007bff;
+    color: #FFFFFF;
+    margin-right: 5px;
+}
+
+.fav-btn:hover{
+    text-decoration: none;
+}
+
+.del-btn{
+    display: flex;
+    align-items: center;
+    color: white;
+    background: red;
+}
+
+.del-btn:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.contact-list-header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 0 0 15px 0;
+    border-bottom: 1px solid #999999;
+    justify-content: space-between;
+}
+
+.contact-list-header .contact-list-heading{
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-btns{
+    display: flex;
+}
+
+.contact-list-header .sidebar-btns a.add-new-btn{
+    background: #333333;
+    color: #ffffff;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+.sidebar-btns button#dropdown-basic{
+    padding: 2px 10px;
+    border-radius: 0;
+}
+
+.sidebar .media {
+    border-bottom: 1px solid #999999;
+    padding: 15px 0;
+}
+
+.sidebar .media img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar-icon{
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background: white;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%; 
+    margin-right: 10px;
+}
+
+/* Main Content CSS */
+
+.main-content .card{
+    border: 0;
+    border-radius: 0;
+    height: 100%;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 5px 5px 10px 5px;
+}
+
+.main-content .card .card-body{
+    text-align: center;
+    padding: 10px 0;
+}
+
+.main-content .card .card-body h4{
+    font-size: 16px;
+}
+
+.main-content .card-icons{
+    display: flex;
+    justify-content: center;
+}
+
+.main-content .ct-complete-info{
+    height: 100%;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.main-content .ct-complete-info h3{
+    border-bottom: 1px solid #888888;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+.main-content .ct-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.ct-info h6, .ct-info p{
+    margin: 0;
+}
+.ct-info h6{
+    width: 30%;
+}
+.ct-info p{
+    width: 70%;
+}
+/* Icons CSS */
+
+.react-icon{
+    font-size: 40px;
+    margin-right: 10px;
+    color: #333333;
+}
+
+.contact-book-icon{
+    font-size: 24px;
+    color: #333333;
+    background: #ffffff;
+}
+
+.card .social-icons{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    background: #f4f5f9;
+    color: #333333;
+    text-align: center;
+}
+
+.star-btn,.trash-btn,.pen-btn{
+    pointer-events: none;
+}
+
+.goldenrod-color{
+    color: goldenrod !important;
 }
