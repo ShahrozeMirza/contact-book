@@ -1,7 +1,8 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState } from 'react';
 import { MdContacts } from 'react-icons/md';
 import { FaPlus, FaStar, FaTrashAlt, FaPen } from 'react-icons/fa';
 import { Dropdown, Modal, Button } from 'react-bootstrap';
+import EditContact from './EditContact';
 
 function Sidebar({filteredContacts, setLocalStorage, userContacts, setUserContacts, fullInfo, setFullInfo, setSelectedContacts }) {
  
@@ -9,6 +10,7 @@ function Sidebar({filteredContacts, setLocalStorage, userContacts, setUserContac
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+ 
     const [newContact, setNewContact] = useState({
         fav: false,
         id: "",
@@ -64,6 +66,18 @@ function Sidebar({filteredContacts, setLocalStorage, userContacts, setUserContac
     const showFavorites = () => {
         setSelectedContacts("Favorites")
     }
+
+       //Edit Modal Functions Start
+
+       const [updateContact,setUpdateContact] = useState('')
+       const [showEdit, setShowEdit] = useState(false);
+       const handleEditClose = () => setShowEdit(false);
+       const handleEditShow = (e) =>{
+           let editId = e.target.getAttribute("value");  
+           setShowEdit(true);
+       };
+   
+       //Edit Modal Functions End
     
     return (
         <>
@@ -85,7 +99,6 @@ function Sidebar({filteredContacts, setLocalStorage, userContacts, setUserContac
                                 <Dropdown.Menu>
                                     <Dropdown.Item onClick={showAll} href="#/action-1">All</Dropdown.Item>
                                     <Dropdown.Item onClick={showFavorites} href="#/action-2">Favorites</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-3">Recent</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
@@ -101,7 +114,7 @@ function Sidebar({filteredContacts, setLocalStorage, userContacts, setUserContac
 
                                         <div className="option-btns">
                                             <a value={contact.id} onClick={favHandler} className={contact.fav ? "fav-btn goldenrod-color" : "fav-btn"} href="#/"><FaStar className="star-btn"/></a>
-                                            <a value={contact.id} className="edit-btn" href="#/"><FaPen className="pen-btn"/></a>
+                                            <a value={contact.id} onClick={handleEditShow} className="edit-btn" href="#/"><FaPen className="pen-btn"/></a>
                                             <a value={contact.id} onClick={delHandler} className="del-btn" href="#/"><FaTrashAlt className="trash-btn"/></a>
                                         </div>
                                     </div>
@@ -114,7 +127,7 @@ function Sidebar({filteredContacts, setLocalStorage, userContacts, setUserContac
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title className="text-center w-100">Add Contact</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                    <div className="container-fluid">
@@ -179,6 +192,9 @@ function Sidebar({filteredContacts, setLocalStorage, userContacts, setUserContac
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+            {/* <EditContact userContacts={userContacts} showEdit={showEdit} setShowEdit={setShowEdit} handleEditShow={handleEditShow} handleEditClose={handleEditClose} /> */}
+         
         </>
     )
 }
